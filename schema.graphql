@@ -1,0 +1,39 @@
+type Game {
+  id: ID!
+  blue: Int
+  red: Int
+  black: Int
+  clicks: [Click]
+  createdAt: AWSDateTime
+}
+
+type Click {
+  color: Color!
+  createdAt: AWSDateTime
+}
+
+enum Color {
+  blue
+  red
+  black
+}
+
+type Query {
+  getGame: Game
+}
+
+type Subscription {
+  updatedGame(id: ID!): Game
+  @aws_subscribe(mutations: ["clickBlue", "clickRed"]);
+}
+
+type Mutation {
+  clickBlue(id: ID!): Game
+  clickRed(id: ID!): Game
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
