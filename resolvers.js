@@ -33,6 +33,11 @@ const Query = {
 };
 
 const Mutation = {
+  resetGame: async () => {
+    const id = Object.keys(InMemoryStore).length > 0 ? Object.keys(InMemoryStore)[0].id : null;
+    InMemoryStore = {};
+    return { id };
+  },
   clickBlue: async ({ id }) => {
     InMemoryStore[id].clicks.push({
       color: 'blue',

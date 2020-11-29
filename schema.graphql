@@ -28,6 +28,7 @@ type Subscription {
 }
 
 type Mutation {
+  resetGame: Game
   clickBlue(id: ID!): Game
   clickRed(id: ID!): Game
 }
