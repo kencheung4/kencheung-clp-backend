@@ -35,13 +35,15 @@ const Query = {
 const Mutation = {
   resetGame: async () => {
     const id = uuidv4();
-    InMemoryStore[id] = {
-      id: id,
-      red: 0,
-      blue: 0,
-      black: 0,
-      clicks: [],
-      createdAt: (new Date()).toISOString(),
+    InMemoryStore = {
+      id: {
+        id: id,
+        red: 0,
+        blue: 0,
+        black: 0,
+        clicks: [],
+        createdAt: (new Date()).toISOString(),
+      }
     }
     return InMemoryStore[id];
   },
