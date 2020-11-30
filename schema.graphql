@@ -25,6 +25,8 @@ type Query {
 type Subscription {
   updatedGame(id: ID!): Game
   @aws_subscribe(mutations: ["clickBlue", "clickRed"]);
+  resetedGame: Game
+  @aws_subscribe(mutations: ["resetGame"]);
 }
 
 type Mutation {

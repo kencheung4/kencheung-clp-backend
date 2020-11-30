@@ -34,9 +34,16 @@ const Query = {
 
 const Mutation = {
   resetGame: async () => {
-    const id = Object.keys(InMemoryStore).length > 0 ? Object.keys(InMemoryStore)[0].id : null;
-    InMemoryStore = {};
-    return { id };
+    const id = uuidv4();
+    InMemoryStore[id] = {
+      id: id,
+      red: 0,
+      blue: 0,
+      black: 0,
+      clicks: [],
+      createdAt: (new Date()).toISOString(),
+    }
+    return InMemoryStore[id];
   },
   clickBlue: async ({ id }) => {
     InMemoryStore[id].clicks.push({
