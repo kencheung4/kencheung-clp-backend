@@ -36,7 +36,7 @@ const Mutation = {
   resetGame: async () => {
     const id = uuidv4();
     InMemoryStore = {
-      id: {
+      [id]: {
         id: id,
         red: 0,
         blue: 0,
