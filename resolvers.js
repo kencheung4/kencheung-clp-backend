@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 
-const InMemoryStore = {
+let InMemoryStore = {
   // [id]: [clicks]
 }
 
